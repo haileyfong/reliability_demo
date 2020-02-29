@@ -1,0 +1,40 @@
+====================================================== system under test
+DeadLock.main()
+
+====================================================== search started: 3/1/20 12:56 AM
+
+====================================================== error 1
+gov.nasa.jpf.vm.NotDeadlockedProperty
+deadlock encountered:
+  thread DeadLock$Philosopher:{id:1,name:Thread-1,status:BLOCKED,priority:5,isDaemon:false,lockCount:0,suspendCount:0}
+  thread DeadLock$Philosopher:{id:2,name:Thread-2,status:BLOCKED,priority:5,isDaemon:false,lockCount:0,suspendCount:0}
+
+
+====================================================== snapshot #1
+thread DeadLock$Philosopher:{id:1,name:Thread-1,status:BLOCKED,priority:5,isDaemon:false,lockCount:0,suspendCount:0}
+  owned locks:DeadLock$Fork@162
+  blocked on: DeadLock$Fork@163
+  call stack:
+        at DeadLock$Philosopher.run(DeadLock.java:20)
+
+thread DeadLock$Philosopher:{id:2,name:Thread-2,status:BLOCKED,priority:5,isDaemon:false,lockCount:0,suspendCount:0}
+  owned locks:DeadLock$Fork@163
+  blocked on: DeadLock$Fork@162
+  call stack:
+        at DeadLock$Philosopher.run(DeadLock.java:20)
+
+
+====================================================== results
+error #1: gov.nasa.jpf.vm.NotDeadlockedProperty "deadlock encountered:    thread DeadLock$Philosoph..."
+
+====================================================== statistics
+elapsed time:       00:00:00
+states:             new=32,visited=19,backtracked=50,end=2
+search:             maxDepth=7,constraints=0
+choice generators:  thread=23 (signal=0,lock=16,sharedRef=0,threadApi=2,reschedule=5), data=0
+heap:               new=380,released=84,maxLive=372,gcCycles=51
+instructions:       3818
+max memory:         123MB
+loaded code:        classes=65,methods=1483
+
+====================================================== search finished: 3/1/20 12:56 AM

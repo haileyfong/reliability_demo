@@ -1,0 +1,40 @@
+JavaPathfinder core system v8.0 (rev 26e11d1de726c19ba8ae10551e048ec0823aabc6) - (C) 2005-2014 United States Government. All rights reserved.
+
+
+====================================================== system under test
+RaceCondition.main()
+
+====================================================== search started: 3/1/20 12:53 AM
+
+====================================================== error 1
+gov.nasa.jpf.vm.NoUncaughtExceptionsProperty
+java.lang.AssertionError
+        at RaceCondition.main(RaceCondition.java:14)
+
+
+====================================================== snapshot #1
+thread java.lang.Thread:{id:0,name:main,status:RUNNING,priority:5,isDaemon:false,lockCount:0,suspendCount:0}
+  call stack:
+        at RaceCondition.main(RaceCondition.java:14)
+
+thread java.lang.Thread:{id:1,name:Thread-1,status:RUNNING,priority:5,isDaemon:false,lockCount:0,suspendCount:0}
+  call stack:
+
+thread java.lang.Thread:{id:2,name:Thread-2,status:RUNNING,priority:5,isDaemon:false,lockCount:0,suspendCount:0}
+  call stack:
+
+
+====================================================== results
+error #1: gov.nasa.jpf.vm.NoUncaughtExceptionsProperty "java.lang.AssertionError  at RaceCondition.main(Ra..."
+
+====================================================== statistics
+elapsed time:       00:00:00
+states:             new=4,visited=0,backtracked=0,end=0
+search:             maxDepth=4,constraints=0
+choice generators:  thread=4 (signal=0,lock=2,sharedRef=0,threadApi=2,reschedule=0), data=0
+heap:               new=392,released=8,maxLive=365,gcCycles=3
+instructions:       3523
+max memory:         123MB
+loaded code:        classes=67,methods=1524
+
+====================================================== search finished: 3/1/20 12:53 AM
